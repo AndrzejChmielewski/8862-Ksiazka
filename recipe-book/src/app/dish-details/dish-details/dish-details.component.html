@@ -1,0 +1,45 @@
+<div class="page-background w-100 h-100 px-5">
+    <div class="d-flex flex-row align-items-center justify-content-start py-2">
+        <button class="pr-2" mat-icon-button (click)="goBack()"><mat-icon>arrow_back</mat-icon></button>
+        <h1 class="pt-3">{{dishById?.name}}</h1>
+    </div>
+    <div class="w-100 d-flex align-items-center justify-content-around">
+    <table mat-table [dataSource]="dishById?.ingredients" class="mat-elevation-z8 w-25">
+        <!-- Item Column -->
+        <ng-container matColumnDef="ilosc">
+          <th mat-header-cell *matHeaderCellDef> Ilość </th>
+          <td mat-cell *matCellDef="let dish"> {{dish.value}} </td>
+          <td mat-footer-cell *matFooterCellDef> Total </td>
+        </ng-container>
+      
+        <!-- Cost Column -->
+        <ng-container matColumnDef="nazwa">
+          <th mat-header-cell *matHeaderCellDef> Składnik </th>
+          <td mat-cell *matCellDef="let dish"> {{dish.name}} </td>
+          <td mat-footer-cell *matFooterCellDef></td>
+        </ng-container>
+      
+        <tr mat-header-row *matHeaderRowDef="displayedColumnsIngredients" class="bg-secondary"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumnsIngredients;" class="bg-secondary"></tr>
+      </table>
+
+      <table mat-table [dataSource]="dishById?.howToMake" class="mat-elevation-z8 w-50">
+        <!-- Item Column -->
+        <ng-container matColumnDef="krok">
+          <th mat-header-cell *matHeaderCellDef class="step"> Krok </th>
+          <td mat-cell *matCellDef="let dish" class="step"> Krok {{dish.step}} </td>
+          <td mat-footer-cell *matFooterCellDef> Total </td>
+        </ng-container>
+      
+        <!-- Cost Column -->
+        <ng-container matColumnDef="opis">
+          <th mat-header-cell *matHeaderCellDef> opis </th>
+          <td mat-cell *matCellDef="let dish"> {{dish.desc}} </td>
+          <td mat-footer-cell *matFooterCellDef></td>
+        </ng-container>
+      
+        <tr mat-header-row *matHeaderRowDef="displayedColumnsHowToMake" class="bg-secondary"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumnsHowToMake;" class="bg-secondary"></tr>
+      </table>
+    </div>
+</div>

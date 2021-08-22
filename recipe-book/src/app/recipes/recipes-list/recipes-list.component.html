@@ -1,0 +1,5 @@
+<div class="w-100 h-100 page-background d-flex align-content-stretch flex-wrap justify-content-center">
+    <ng-container *ngFor="let dish of recipesList">
+    <app-recipe-info [dish]="dish" class="px-4 pt-5"></app-recipe-info>
+    </ng-container>
+</div>

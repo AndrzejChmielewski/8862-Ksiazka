@@ -1,0 +1,24 @@
+<div class="recipe-info bg-dark">
+    <div class="container w-100 h-100">
+        <div class="row h-50">
+          <div class="col ml-2" [ngClass]="logoGetter(dish?.id)"></div>
+          <div class="col w-100 h-100 d-flex align-items-center justify-content-center text-light text-truncate text-wrap text-center">{{dish?.desc}}</div>
+          </div>
+          <div class="row h-50">
+            <div class="col">
+                <div class="h-100 w-100 d-flex flex-column align-items-start justify-content-around">
+                    <mat-chip-list aria-label="time">
+                        <mat-chip color="accent" selected>{{dish?.time}}</mat-chip>
+                      </mat-chip-list>
+                      <mat-chip-list aria-label="time">
+                        <mat-chip color="accent" selected><mat-icon>stacked_bar_chart</mat-icon>{{dish?.level}}</mat-chip>
+                      </mat-chip-list>
+                      <star-rating [value]="dish?.stars ? dish.stars : 0" [totalstars]="5" checkedcolor="pink" uncheckedcolor="black" size="24px" [readonly]="true"></star-rating>
+            </div>
+            </div>
+          <div class="col w-100 h-100 d-flex align-items-center justify-content-center">
+              <button mat-raised-button color="primary" (click)="goToDetails(dish?.id)">SZCZEGÓŁY DANIA</button>
+          </div>
+        </div>
+      </div>
+</div>
